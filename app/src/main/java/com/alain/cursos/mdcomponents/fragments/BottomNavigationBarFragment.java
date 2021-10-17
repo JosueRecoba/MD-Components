@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.alain.cursos.mdcomponents.R;
 import com.alain.cursos.mdcomponents.utils.Component;
 import com.alain.cursos.mdcomponents.utils.Constants;
+import com.google.android.material.badge.BadgeDrawable;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -45,7 +46,17 @@ public class BottomNavigationBarFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_bottom_navigation_bar, container, false)
         mUnbinder = ButterKnife.bind(this,view);
 
+        bottonNavigation.getOrCreateBadge(R.id.action_start);
+       // bottonNavigation.removeBadge(R.id.action_start);
 
+        BadgeDrawable favoriteBadge = bottonNavigation.getOrcreateBadge(R.id.action_favorites);
+        favoriteBadge.setNumber(21);
+
+        BadgeDrawable profileBadge = bottonNavigation.getOrcreateBadge(R.id.action_profile);
+        profileBadge.setNumber(999);
+        profileBadge.setMaxCharacterCount(3);
+        profileBadge.setBackgroundColor(color.CYAN);
+        profileBadge.setBadgeTextColor(color.MAGENTA);
 
         return  view;
 
